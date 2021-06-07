@@ -1,0 +1,8 @@
+.header {
+    height: 10vh;
+    min-height: 5rem;
+    background-color: red;
+    color: #fff;
+
+    text-align: center;
+}
