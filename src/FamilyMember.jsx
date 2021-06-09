@@ -1,7 +1,7 @@
 const FamilyMember = (props) => {
     return ( 
         <>
-            <p>{props.name} {props.surname}</p>
+            <span>{props.name} {props.surname}</span><br />
         </>
     );
 }

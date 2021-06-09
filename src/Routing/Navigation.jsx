@@ -1,44 +1,56 @@
 import React from 'react';
 
+import VerticalNavigation from '../layout/VerticalNavigation';
+import Column from '../layout/Column';
+
 import About from './About';
 import Dashboard from './Dashboard';
 import Vendas from './Vendas';
 
 import {
   BrowserRouter as Router,
-  Link,
   Switch,
   Route,
   Redirect
 } from 'react-router-dom';
 
 const Navigation = () => {
-  return (
-    <div>
-      <Router>
-        <div>
-          <ul>
-            <li><Link to="/">Vendas</Link></li>
-            <li><Link to="/dashboard">Dashboard</Link></li>
-            <li><Link to="/sobre">Sobre</Link></li>
-          </ul>
-        </div>
+  const links = [
+    {
+      url: '/vendas',
+      title: 'Vendas',
+      comp: Vendas
+    },
+    {
+      url: '/dashboard',
+      title: 'Dashboard',
+      comp: Dashboard
+    },
+    {
+      url: '/sobre',
+      title: 'Sobre',
+      comp: About
+    }
+  ]
 
-        <div>
+  return (
+    <Router>
+      <Column size="md-6">
+        <div className="h-100 p-5 bg-light rounded">
+          <VerticalNavigation menus={links} />
+        </div>
+      </Column>
+      <Column size="md-6">
+        <div className="h-100 p-5 text-white bg-dark rounded">
           <Switch>
             <Route exact path="/">
               <Redirect to="/vendas" />
             </Route>
-
-            <Route exact path="/vendas" component={Vendas} />
-
-            <Route exact path="/dashboard" component={Dashboard} />
-
-            <Route exact path="/sobre" component={About} />
+            {links.map((menu) => <Route exact path={menu.url} component={menu.comp} />)}
           </Switch>
         </div>
-      </Router>
-    </div>
+      </Column>
+    </Router>
   );
 }
 
