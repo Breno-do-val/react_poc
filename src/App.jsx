@@ -2,6 +2,7 @@ import Header from './header/Header'
 import Counter from './counter/Counter'
 import Family from './Family/Family'
 import FamilyMember from './Family/FamilyMember/FamilyMember'
+import Navigation from './Routing/Navigation'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <FamilyMember name="Breno" />
         <FamilyMember name="Willes" />
       </Family>
+      <Navigation />
     </div>
   );
 }
