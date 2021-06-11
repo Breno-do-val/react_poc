@@ -3,7 +3,7 @@ const Description = (props) => {
     <>
       <h2>{props.title}</h2>
       <p>{props.description}</p>
-      <button className={`btn btn-outline-${props.btnType}`} onClick={props.handleClick}>Get</button>
+      <button className={`btn btn-outline-${props.btnType}`} onClick={e => props.handleClick()}>Get</button>
     </>
   );
 }

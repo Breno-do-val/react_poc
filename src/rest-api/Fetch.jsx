@@ -9,6 +9,10 @@ export default function Fetch() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const getInfo = () => {
+    setLoading(true);
+  }
+
   useEffect(() => {
     if (!loading) return;
     window.fetch('https://randomuser.me/api')
@@ -33,7 +37,7 @@ export default function Fetch() {
     <div className="h-100 p-5 text-white bg-dark rounded">
       <Row>
         <Column size="md-6">
-          <Description title="API REST - Fetch" description="Exemplo de retorno da API 'randomuser' usando windows.fetch()" btnType="light" handleClick={() => setLoading(true)} />
+          <Description title="API REST - Fetch" description="Exemplo de retorno da API 'randomuser' usando windows.fetch()" btnType="light" handleClick={getInfo} />
         </Column>
         <Column size="md-6">
           <UserResult user={data.results[0]} />
